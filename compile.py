@@ -11,12 +11,12 @@ if not os.path.isfile(common_file_path):
     exit()
 
 
-for str_os in ['iOs', 'Android']:
+for str_os in ['iOS', 'Android']:
     print "\n---building %s file" % str_os
     #print os.getcwd()
     
-    concatened_file_folder_path = os.path.join(distrib_path, str_os )
-    concatened_file_path = os.path.join(distrib_path, str_os, "%s.js" % libName )
+    concatened_file_folder_path = "%s-%s" % (distrib_path, str_os)
+    concatened_file_path = os.path.join( concatened_file_folder_path, "%s.js" % libName )
     
     adapter_file_path=os.path.abspath(os.path.join(web_sources_path, 'adapters', str_os, "adapter.js"))
     
