@@ -797,9 +797,8 @@ var cobalt = {
          cobalt.storage.get('age');
          //returns 12 (number)
 
-         //experimental :
          cobalt.storage.set('user',{name:'toto',age:6});
-         cobalt.storage.get('user','json');
+         cobalt.storage.get('user');
          //returns {name:'toto',age:6} (object)
 
          */
