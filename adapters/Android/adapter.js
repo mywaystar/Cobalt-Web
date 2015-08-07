@@ -58,7 +58,7 @@ cobalt.android_adapter = {
 					data : data
 				}
             });
-            cobalt.storage.removeItem("dismissInformations");
+            cobalt.storage.remove("dismissInformations");
         } else {
             cobalt.log("WANRING : dismissInformations are not available in storage")
         }
@@ -66,7 +66,7 @@ cobalt.android_adapter = {
     },
     storeModalInformations: function (params) {
         cobalt.divLog("storing informations for the dismiss :", params);
-        cobalt.storage.setItem("dismissInformations", params, "json");
+        cobalt.storage.set("dismissInformations", params);
 
     },
     //localStorage stuff
@@ -112,12 +112,12 @@ cobalt.android_adapter = {
                         if (newDate && newDate.year) {
                             input.value = newDate.year + '-' + newDate.month + '-' + newDate.day;
                             cobalt.log('setting storage date ', newDate);
-                            cobalt.storage.setItem('CobaltDatePickerValue_' + id, newDate, 'json');
+                            cobalt.storage.set('CobaltDatePickerValue_' + id, newDate);
                             cobalt.datePicker.enhanceFieldValue.apply(input);
                         } else {
                             cobalt.log('removing storage date');
                             input.value = "";
-                            cobalt.storage.removeItem('CobaltDatePickerValue_' + id)
+                            cobalt.storage.remove('CobaltDatePickerValue_' + id)
                         }
                     });
                     return false;

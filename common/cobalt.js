@@ -179,7 +179,7 @@ var cobalt = {
     navigate:{
         //cobalt.navigate.push({ page : "next.html", controller:"myController", animated:false });
         push:function(options){
-            if (options && options.page){
+            if (options && (options.page || options.controller)){
                 cobalt.send({
                     type : "navigation",
                     action : "push",
@@ -207,7 +207,7 @@ var cobalt = {
         },
         //cobalt.navigate.popTo({ page : "next.html", controller:"myController" });
         popTo:function(options){
-            if (options && options.page){
+            if (options && (options.page || options.controller)){
                 cobalt.send({
                     type : "navigation",
                     action : "pop",
@@ -225,7 +225,7 @@ var cobalt = {
         },
         //cobalt.navigate.replace({ page : "next.html", controller:"myController", animated:false });
         replace:function(options){
-            if (options && options.page){
+            if (options && (options.page || options.controller)){
                 cobalt.send({
                     type : "navigation",
                     action : "replace",
@@ -242,7 +242,7 @@ var cobalt = {
             }
         },
         modal:function(options){
-            if (options && options.page){
+            if (options && (options.page || options.controller)){
                 cobalt.adapter.navigateToModal(options);
 
                 if (cobalt.debugInBrowser && window.event && window.event.altKey) {
@@ -748,11 +748,11 @@ var cobalt = {
                     day: parseInt(values[2], 10)
                 };
                 cobalt.log('setting storage date ', 'CobaltDatePickerValue_' + id, d);
-                cobalt.storage.setItem('CobaltDatePickerValue_' + id, d, 'json')
+                cobalt.storage.set('CobaltDatePickerValue_' + id, d)
 
             } else {
                 cobalt.log('removing date');
-                cobalt.storage.removeItem('CobaltDatePickerValue_' + id)
+                cobalt.storage.remove('CobaltDatePickerValue_' + id)
             }
             return false;
         },
