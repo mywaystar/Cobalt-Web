@@ -1,4 +1,4 @@
-Cobalt.utils.protoype = function() {
+Cobalt.prototype.utils = function() {
   var self = this;
 
   var Utils = {

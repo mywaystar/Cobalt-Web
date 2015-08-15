@@ -1,4 +1,4 @@
-Cobalt.defaultBehaviors.protoype = function() {
+Cobalt.prototype.defaultBehaviors = function() {
   var self = this;
 
   var defaultBehaviors = {

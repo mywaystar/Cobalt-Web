@@ -1,4 +1,4 @@
-Cobalt.storage.protoype = function() {
+Cobalt.protoype.storage = function() {
   var self = this;
 
   var Storage = {
