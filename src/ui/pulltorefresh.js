@@ -1,4 +1,4 @@
-Cobalt.navigate.pullToRefresh = function(){
+Cobalt.prototype.pullToRefresh = function(){
   var pullToRefresh = {
     setTexts: function (pullToRefreshText, refreshingText) {
       if (typeof pullToRefreshText != "string") pullToRefreshText = undefined;

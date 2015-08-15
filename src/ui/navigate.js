@@ -1,4 +1,4 @@
-Cobalt.navigate.protoype = function(){
+Cobalt.prototype.navigate = function(){
   var self = this;
 
   var Navigate = {

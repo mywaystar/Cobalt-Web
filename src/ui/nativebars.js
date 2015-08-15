@@ -1,4 +1,4 @@
-Cobalt.nativeBars.protoype = function() {
+Cobalt.prototype.nativeBars = function() {
   var self = this;
 
   var nativeBars = {
