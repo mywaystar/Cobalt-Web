@@ -1,4 +1,4 @@
-Cobalt.android_adapter.protoype = function() {
+Cobalt.prototype.android_adapter = function() {
   var self = this;
 
   var Adapter = {
