@@ -51,7 +51,7 @@ Cobalt.prototype.android_adapter = function() {
           controller: options.controller,
           data: options.data
         }
-      }, 'cobalt.adapter.storeModalInformations');
+      }, 'cobalt.adapter().storeModalInformations');
     },
     dismissFromModal: function(data) {
       var dismissInformations = self.storage.get("dismissInformations");
@@ -144,7 +144,6 @@ Cobalt.prototype.android_adapter = function() {
         return undefined;
       }
     },
-
     //default behaviours
     handleCallback: self.defaultBehaviors.handleCallback,
     handleUnknown: self.defaultBehaviors.handleUnknown

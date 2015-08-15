@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Cobalt sample</title>
+</head>
+<body>
+
+ <script src="../dist/cobalt.js"></script>
+
+
+    <script>
+      cobalt.init({
+        debug:true,
+        //debugInBrowser:true,
+        events:{
+          "pullToRefresh" : function(data,callback){
+            cobalt.log('Refresh asked...');
+            pleaseRefresh(callback);
+          }
+        }
+      });
+      var messages=["Hello!","Yes it works!","Bonjour !","guten Tag!","Ola !"],
+        i = 0,
+        len = messages.length,
+        hello = document.getElementById("hello");
+      function pleaseRefresh( callback ){
+        cobalt.log('refreshing content');
+
+        hello.innerHTML =  messages[i++];
+        if (i >= len) { i = 0 };//loop over messages
+        if (callback){
+          cobalt.sendCallback(callback);
+        }
+      }
+    </script>
+</body>
+</html>

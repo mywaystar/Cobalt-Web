@@ -42,7 +42,7 @@ Cobalt.prototype.init = function(options){
 
   this.events                 = options.events || {};
 
-  this.plugins.init(options.plugins || {});
+  this.options.plugins = options.plugins || {};
 
   this.send({
     type     : 'cobaltIsReady',
@@ -80,7 +80,7 @@ Cobalt.prototype.send = function(data, callback) {
 
   if (this.options.debugInBrowser) this.log('sending', data);
 
-  this.adapter.send(data, callback);
+  this.adapter().send(data, callback);
 };
 
 Cobalt.prototype.registerCallback = function(callback) {
@@ -137,10 +137,10 @@ Cobalt.prototype.execute = function(json) {
         this.plugins.handleEvent(json);
         break;
       case "event":
-        this.adapter.handleEvent(json);
+        this.adapter().handleEvent(json);
         break;
       case "callback":
-        this.adapter.handleCallback(json);
+        this.adapter().handleCallback(json);
         break;
       case "ui":
         switch (json.control) {
@@ -150,7 +150,7 @@ Cobalt.prototype.execute = function(json) {
         }
         break;
       default:
-        this.adapter.handleUnknown(json);
+        this.adapter().handleUnknown(json);
     }
   } catch (e) {
     cobalt.log('cobalt.execute failed : ' + e);
@@ -176,6 +176,6 @@ Cobalt.prototype.tryToCallCallback = function(json) {
       this.log('Failed calling callback : ' + e);
     }
   } else {
-    this.adapter.handleUnknown(json);
+    this.adapter().handleUnknown(json);
   }
 };

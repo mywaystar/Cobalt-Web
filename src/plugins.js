@@ -10,7 +10,7 @@ Cobalt.prototype.plugins = function() {
      - have a "handleEvent" function that will receive all event {type:"plugin", name:thePluginName}
      - add options to the init call to receive them when the plugin will be inited.
      */
-    pluginsOptions: {},
+    pluginsOptions: self.options.plugins,
     enabledPlugins: {},
 
     //add a plugin to the plugin list.
@@ -47,6 +47,8 @@ Cobalt.prototype.plugins = function() {
       }
     }
   };
+
+  Plugins.init();
 
   return Plugins;
 };

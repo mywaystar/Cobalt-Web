@@ -7,7 +7,7 @@ Cobalt.prototype.defaultBehaviors = function() {
       if (self.events && typeof self.events[json.event] === "function") {
         self.events[json.event](json.data, json.callback);
       } else {
-        self.adapter.handleUnknown(json);
+        self.adapter().handleUnknown(json);
       }
     },
     handleCallback: function(json) {

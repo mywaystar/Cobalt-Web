@@ -27,8 +27,8 @@ Cobalt.prototype.datePicker = function() {
         datePicker.updateFromValue.apply(input);
       });
 
-      if (self.adapter && self.adapter.datePicker && self.adapter.datePicker.init) {
-        self.adapter.datePicker.init(inputs);
+      if (self.adapter() && self.adapter().datePicker && self.adapter().datePicker.init) {
+        self.adapter().datePicker.init(inputs);
       }
     },
     updateFromValue: function() {
@@ -78,9 +78,9 @@ Cobalt.prototype.datePicker = function() {
       if (input[0] && input[0].value !== undefined) {
         input = input[0];
       }
-      if (self.adapter && self.adapter.datePicker && self.adapter.datePicker.val) {
-        selfc.log('returning cobalt adapter datePicker value');
-        return self.adapter.datePicker.val(input);
+      if (self.adapter() && self.adapter().datePicker && self.adapter().datePicker.val) {
+        selfc.log('returning cobalt adapter().datePicker value');
+        return self.adapter().datePicker.val(input);
       } else {
         self.log('returning cobalt default datePicker value');
         return input.value || undefined;

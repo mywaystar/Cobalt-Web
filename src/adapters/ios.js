@@ -17,9 +17,9 @@ Cobalt.prototype.ios_adapter = function() {
 
       if (typeof self.iewController === "undefined") {
         self.log('Warning : self.iewController undefined. We probably are below ios7.');
-        adapter.isBelowIOS7 = true;
+        adapter().isBelowIOS7 = true;
       } else {
-        adapter.isBelowIOS7 = false;
+        adapter().isBelowIOS7 = false;
       }
     },
     // handle callbacks sent by native side

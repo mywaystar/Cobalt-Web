@@ -1,4 +1,4 @@
-Cobalt.prototype.navigate = function(){
+Cobalt.navigate.protoype = function(){
   var self = this;
 
   var Navigate = {
@@ -61,13 +61,13 @@ Cobalt.prototype.navigate = function(){
     modal: function(options){
       if (!options || !options.page || !options.controller) return;
 
-      self.adapter().navigateToModal(options);
+      self.adapter.navigateToModal(options);
     },
 
     dismiss: function(options){
       if (!options || !options.page || !options.controller) return;
 
-      self.adapter().dismissFromModal(options);
+      self.adapter.dismissFromModal(options);
     },
   };
 
