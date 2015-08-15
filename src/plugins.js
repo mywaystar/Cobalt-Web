@@ -1,4 +1,4 @@
-Cobalt.plugins.protoype = function() {
+Cobalt.prototype.plugins = function() {
   var self = this;
 
   var Plugins = {
