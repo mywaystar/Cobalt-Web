@@ -3,7 +3,7 @@ Cobalt.prototype.toast = function(text) {
     type     : "ui",
     control  : "toast",
     data: {
-      message: this.utils.logToString(text)
+      message: this.utils().logToString(text)
     }
   });
 };

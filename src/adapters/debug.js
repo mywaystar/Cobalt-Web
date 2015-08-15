@@ -36,8 +36,8 @@ Cobalt.prototype.debug_adapter = function() {
     },
 
     //default behaviours
-    handleCallback: self.defaultBehaviors.handleCallback,
-    handleUnknown: self.defaultBehaviors.handleUnknown
+    handleCallback: self.defaultBehaviors().handleCallback,
+    handleUnknown: self.defaultBehaviors().handleUnknown
   };
 
   return Adapter;

@@ -3,8 +3,11 @@ Cobalt.prototype.nativeBars = function() {
 
   var nativeBars = {
     handlers: {},
+    init : function() {
+
+    },
     onBarButtonPressed: function(actionHandlers) {
-      self.utils.extend(nativeBars.handlers, actionHandlers);
+      self.utils().extend(nativeBars.handlers, actionHandlers);
     },
     handleEvent: function(data) {
       if (data && data.action == "buttonPressed") {

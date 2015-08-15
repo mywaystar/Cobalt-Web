@@ -80,7 +80,7 @@ Cobalt.prototype.android_adapter = function() {
       try {
         window.localStorage = LocalStorage;
       } catch (e) {
-        self.log("LocalStorage WARNING : can't find android class LocalStorage. switching to raw localStorage")
+        self.log("LocalStorage WARNING : can't find android class LocalStorage. switching to raw localStorage");
       }
       return self.storage.enable();
     },
@@ -88,13 +88,13 @@ Cobalt.prototype.android_adapter = function() {
     datePicker: {
       init: function(inputs) {
 
-        self.utils.each(inputs, function() {
+        self.utils().each(inputs, function() {
           var input = this;
-          var id = self.utils.attr(input, 'id');
+          var id = self.utils().attr(input, 'id');
 
           self.log('datePicker setted with value=' + input.value);
-          self.utils.attr(input, 'type', 'text');
-          self.datePicker.enhanceFieldValue.apply(input);
+          self.utils().attr(input, 'type', 'text');
+          self.datePicker().enhanceFieldValue.apply(input);
 
           input.addEventListener('focus', function() {
             self.log('show formPicker date for date #', id);
@@ -114,14 +114,14 @@ Cobalt.prototype.android_adapter = function() {
               data: {
                 type: "date",
                 date: previousDate,
-                texts: self.datePicker.texts
+                texts: self.datePicker().texts
               }
             }, function(newDate) {
               if (newDate && newDate.year) {
                 input.value = newDate.year + '-' + newDate.month + '-' + newDate.day;
                 self.log('setting storage date ', newDate);
                 self.storage.set('CobaltDatePickerValue_' + id, newDate);
-                self.datePicker.enhanceFieldValue.apply(input);
+                self.datePicker().enhanceFieldValue.apply(input);
               } else {
                 self.log('removing storage date');
                 input.value = "";
@@ -135,9 +135,9 @@ Cobalt.prototype.android_adapter = function() {
         });
       },
       val: function(input) {
-        var date = self.storage.get('CobaltDatePickerValue_' + self.utils.attr(input, 'id'));
+        var date = self.storage.get('CobaltDatePickerValue_' + self.utils().attr(input, 'id'));
         if (date) {
-          var str_date = self.datePicker.stringifyDate(date);
+          var str_date = self.datePicker().stringifyDate(date);
           self.log('returning storage date ', str_date);
           return str_date;
         }
@@ -145,8 +145,8 @@ Cobalt.prototype.android_adapter = function() {
       }
     },
     //default behaviours
-    handleCallback: self.defaultBehaviors.handleCallback,
-    handleUnknown: self.defaultBehaviors.handleUnknown
+    handleCallback: self.defaultBehaviors().handleCallback,
+    handleUnknown: self.defaultBehaviors().handleUnknown
   };
 
   return Adapter;

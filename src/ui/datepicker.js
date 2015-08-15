@@ -15,14 +15,14 @@ Cobalt.prototype.datePicker = function() {
     placeholderStyles: "width:100%; color:#AAA;",
     //internal
     init: function() {
-      var inputs = self.utils.$('input[type=date]');
+      var inputs = self.utils().$('input[type=date]');
 
-      self.utils.each(inputs, function() {
+      self.utils().each(inputs, function() {
         var input = this;
-        var id = self.utils.attr(input, 'id');
+        var id = self.utils().attr(input, 'id');
         if (!id) {
           id = 'CobaltGeneratedId_' + Math.random().toString(36).substring(7);
-          self.utils.attr(input, 'id', id);
+          self.utils().attr(input, 'id', id);
         }
         datePicker.updateFromValue.apply(input);
       });
@@ -32,12 +32,12 @@ Cobalt.prototype.datePicker = function() {
       }
     },
     updateFromValue: function() {
-      var id = self.utils.attr(this, 'id');
+      var id = self.utils().attr(this, 'id');
       self.log("updating storage value of date #", id);
       if (this.value) {
-        self.utils.addClass(this, 'not_empty');
+        self.utils().addClass(this, 'not_empty');
       } else {
-        self.utils.removeClass(this, 'not_empty');
+        self.utils().removeClass(this, 'not_empty');
       }
       self.log('current value is', this.value);
       var values = this.value.split('-');
@@ -57,7 +57,7 @@ Cobalt.prototype.datePicker = function() {
       return false;
     },
     enhanceFieldValue: function() {
-      var date = self.storage.get('CobaltDatePickerValue_' + self.utils.attr(this, 'id'));
+      var date = self.storage.get('CobaltDatePickerValue_' + self.utils().attr(this, 'id'));
       if (date) {
         self.log('format date=', date);
         this.value = datePicker.format(datePicker.stringifyDate(date));

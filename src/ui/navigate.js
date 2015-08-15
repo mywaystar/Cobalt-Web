@@ -18,7 +18,8 @@ Cobalt.prototype.navigate = function(){
     },
 
     pop: function(options){
-      if (!options || !options.page || !options.controller) return;
+      if (!options ||
+        !options.page || !options.controller) return;
 
       self.send({
         type    : "navigation",

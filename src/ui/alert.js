@@ -5,13 +5,13 @@ Cobalt.prototype.alert = function(options) {
 
   if (typeof options == "string") options = { message : options } ;
 
-  this.utils.extend(obj, {
+  this.utils().extend(obj, {
     title : options.title,
     message : options.message,
     //ensure buttons is an array of strings or default to one Ok button
     buttons : (
       options.buttons &&
-      this.utils.isArray(options.buttons) &&
+      this.utils().isArray(options.buttons) &&
       options.buttons.length
     ) ? options.buttons : ['Ok'], //only supported on Android
     cancelable : (options.cancelable) ? true : false

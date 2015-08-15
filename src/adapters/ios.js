@@ -27,7 +27,7 @@ Cobalt.prototype.ios_adapter = function() {
       if (Adapter.isBelowIOS7) {
         Adapter.ios6.handleCallback(json);
       } else {
-        self.defaultBehaviors.handleCallback(json);
+        self.defaultBehaviors().handleCallback(json);
       }
     },
     //send native stuff
@@ -49,13 +49,13 @@ Cobalt.prototype.ios_adapter = function() {
     //datePicker stuff
     datePicker: {
       init: function(inputs) {
-        self.utils.each(inputs, function() {
+        self.utils().each(inputs, function() {
           var input = this;
-          var id = self.utils.attr(input, 'id');
+          var id = self.utils().attr(input, 'id');
 
-          var placeholder = self.utils.attr(input, 'placeholder');
+          var placeholder = self.utils().attr(input, 'placeholder');
           if (placeholder) {
-            self.utils.append(document.head, '<style> #' + id + ':before{ content:"' + placeholder + '"; ' + self.datePicker.placeholderStyles + ' } #' + id + ':focus:before,#' + id + '.not_empty:before{ content:none }</style>');
+            self.utils().append(document.head, '<style> #' + id + ':before{ content:"' + placeholder + '"; ' + self.datePicker.placeholderStyles + ' } #' + id + ':focus:before,#' + id + '.not_empty:before{ content:none }</style>');
           }
 
           input.addEventListener('change', self.datePicker.updateFromValue, false);
@@ -103,11 +103,11 @@ Cobalt.prototype.ios_adapter = function() {
     },
 
     //default behaviours
-    handleEvent: self.defaultBehaviors.handleEvent,
-    handleUnknown: self.defaultBehaviors.handleUnknown,
-    navigateToModal: self.defaultBehaviors.navigateToModal,
-    dismissFromModal: self.defaultBehaviors.dismissFromModal,
-    initStorage: self.defaultBehaviors.initStorage
+    handleEvent: self.defaultBehaviors().handleEvent,
+    handleUnknown: self.defaultBehaviors().handleUnknown,
+    navigateToModal: self.defaultBehaviors().navigateToModal,
+    dismissFromModal: self.defaultBehaviors().dismissFromModal,
+    initStorage: self.defaultBehaviors().initStorage
   };
   return Adapter;
 };
